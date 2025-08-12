@@ -35,6 +35,19 @@ if __name__ == "__main__":
         type = float,
     )
     parser.add_argument(
+        "--avoid-countries",
+        default = [
+            "Baikonur",
+            "Iran",
+            "Russia",
+            "Ukraine",
+        ],
+           dest = "avoidCountries",
+           help = "the countries to be avoided",
+          nargs = "+",
+           type = str,
+    )
+    parser.add_argument(
         "--conservatism",
         default = 2.0,
            dest = "cons",
@@ -155,12 +168,7 @@ if __name__ == "__main__":
         args.lon,
         args.lat,
         args.spd,
-        avoidCountries = [
-            "Baikonur",
-            "Iran",
-            "Russia",
-            "Ukraine",
-        ],
+        avoidCountries = args.avoidCountries,
                   cons = args.cons,
                  debug = args.debug,
                    dur = args.dur,
