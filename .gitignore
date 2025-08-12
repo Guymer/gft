@@ -1,0 +1,32 @@
+# OS generated files ...
+.directory
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Hide compiled code ...
+__pycache__
+
+# Hide output of Coverage/cProfile/MyPy/PyLint/ShellCheck ...
+.coverage
+cProfile.log
+mypy.log
+pylint.log
+shellcheck.log
+*.gcda
+*.gcno
+
+# Hide large datasets ...
+nAng=*
+res=*
+*.geojson
+*.geojson.gz
+*.mp4
+*.png
+*.webp
+*.wkb
+*.wkb.gz
