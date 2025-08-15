@@ -270,11 +270,81 @@ if __name__ == "__main__":
     # **************************************************************************
     # **************************************************************************
 
+    # Initialize ranges ...
+    distMin = 999999                                                            # [km]
+    distMax =      0                                                            # [km]
+
+    # Loop over distances ...
+    for dist in range(1, 30000 + 1, 1):
+        # Initialize list ...
+        fnames = []
+
+        # Loop over combinations ...
+        for nAng, neRes, prec, color in combs:
+            # Skip if this distance cannot exist (because the precision is too
+            # coarse) and determine the step count ...
+            if (1000 * dist) % prec != 0:
+                continue
+            istep = ((1000 * dist) // prec) - 1                                 # [#]
+
+            # Create short-hands ...
+            # NOTE: Say that 928,000 metres takes 1 hour at 500 knots.
+            freqLand = 8 * 928000 // prec                                       # [#]
+            freqPlot = 928000 // prec                                           # [#]
+            freqSimp = 928000 // prec                                           # [#]
+
+            # Deduce directory name ...
+            dname = f"res={neRes}_cons=2.00e+00_tol=1.00e-10/local=F_nAng={nAng:d}_prec={prec:.2e}/freqLand={freqLand:d}_freqSimp={freqSimp:d}_lon={lon:+011.6f}_lat={lat:+010.6f}/limit"
+
+            # Deduce file name and skip if it is missing ...
+            fname = f"{dname}/istep={istep + 1:06d}.wkb.gz"
+            if not os.path.exists(fname):
+                continue
+
+            # Append it to the list ...
+            fnames.append(fname)
+
+        # Skip this frame if there are not enough files ...
+        if len(fnames) != len(combs):
+            continue
+
+        # **********************************************************************
+
+        # Initialize flag ...
+        skip = True
+
+        # Loop over combinations/files ...
+        for (nAng, neRes, prec, color), fname in zip(combs, fnames, strict = True):
+            # Load [Multi]LineString ...
+            with gzip.open(fname, mode = "rb") as gzObj:
+                limit = shapely.wkb.loads(gzObj.read())
+
+            # Set flag if this limit is within the plot's field-of-view ...
+            if limit.intersects(fov):
+                skip = False
+
+        # Skip this plot if no limit is within its field-of-view ...
+        if skip:
+            continue
+
+        # Update ranges ...
+        distMin = min(distMin, dist)                                            # [km]
+        distMax = max(distMax, dist)                                            # [km]
+
+    print(f"The distance range has been automatically determined to be between {distMin:,d} km and {distMax:,d} km.")
+
+    # Update maximum range to remove noise ...
+    distMax = 11832                                                             # [km]
+
+    print(f"The distance range has been overridden to be between {distMin:,d} km and {distMax:,d} km.")
+
+    # **************************************************************************
+
     # Initialize list ...
     frames = []
 
     # Loop over distances ...
-    for dist in range(1, 30000 + 1, 1):
+    for dist in range(distMin, distMax + 1, 1):
         # Deduce PNG name, if it exists then append it to the list and skip ...
         frame = f"{outDir}/lon={lon:+011.6f}_lat={lat:+010.6f}/dist={dist:05d}_Baltic.png"
         if os.path.exists(frame):
@@ -313,29 +383,6 @@ if __name__ == "__main__":
 
         # Skip this frame if there are not enough files ...
         if len(fnames) != len(combs):
-            continue
-
-        # **********************************************************************
-
-        print(f"Checking for \"{frame}\" ...")
-
-        # Initialize flag ...
-        skip = True
-
-        # Loop over combinations/files ...
-        for (nAng, neRes, prec, color), fname in zip(combs, fnames, strict = True):
-            print(f" > Loading \"{fname}\" ...")
-
-            # Load [Multi]LineString ...
-            with gzip.open(fname, mode = "rb") as gzObj:
-                limit = shapely.wkb.loads(gzObj.read())
-
-            # Set flag if this limit is within the plot's field-of-view ...
-            if limit.intersects(fov):
-                skip = False
-
-        # Skip this plot if no limit is within its field-of-view ...
-        if skip:
             continue
 
         # **********************************************************************
@@ -518,12 +565,13 @@ if __name__ == "__main__":
 
     print(f"Making \"{outDir}/lon={lon:+011.6f}_lat={lat:+010.6f}_Baltic.mp4\" ...")
 
-    # Save 25 fps MP4 ...
+    # Save 1 fps MP4 ...
     vname = pyguymer3.media.images2mp4(
         frames,
               debug = args.debug,
         ffprobePath = args.ffprobePath,
          ffmpegPath = args.ffmpegPath,
+                fps = 1.0,
             timeout = args.timeout,
     )
     shutil.move(vname, f"{outDir}/lon={lon:+011.6f}_lat={lat:+010.6f}_Baltic.mp4")
@@ -536,12 +584,13 @@ if __name__ == "__main__":
     for maxSize in maxSizes:
         print(f"Making \"{outDir}/lon={lon:+011.6f}_lat={lat:+010.6f}_Baltic{maxSize:04d}px.mp4\" ...")
 
-        # Save 25 fps MP4 ...
+        # Save 1 fps MP4 ...
         vname = pyguymer3.media.images2mp4(
             frames,
                    debug = args.debug,
              ffprobePath = args.ffprobePath,
               ffmpegPath = args.ffmpegPath,
+                     fps = 1.0,
             screenHeight = maxSize,
              screenWidth = maxSize,
                  timeout = args.timeout,
