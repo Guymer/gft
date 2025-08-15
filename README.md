@@ -1,6 +1,6 @@
 # Global Flying Times (GFT)
 
-!["mypy" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/mypy.yaml/badge.svg) !["pylint" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/pylint.yaml/badge.svg)
+!["mypy" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/mypy.yaml/badge.svg) !["publish" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/publish.yaml/badge.svg) !["pylint" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/pylint.yaml/badge.svg)
 
 This project aims to show how a plane flies around the globe - building heavily upon [GST](https://github.com/Guymer/gst).
 
@@ -19,6 +19,7 @@ python3.12 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 256 --freqPlot 32 --f
 GFT requires the following Python modules to be installed and available in your `PYTHONPATH`.
 
 * [cartopy](https://pypi.org/project/Cartopy/)
+* [FMC](https://github.com/Guymer/fmc)
 * [geojson](https://pypi.org/project/geojson/)
 * [GST](https://github.com/Guymer/gst)
 * [matplotlib](https://pypi.org/project/matplotlib/)
