@@ -276,6 +276,22 @@ if __name__ == "__main__":
             resolution = "large8192px",
         )
 
+        # Load [Multi]Polygon ...
+        with gzip.open(f"{os.path.dirname(os.path.dirname(os.path.dirname(fnames[-1])))}/allLands.wkb.gz", mode = "rb") as gzObj:
+            allLands = shapely.wkb.loads(gzObj.read())
+
+        # Plot [Multi]Polygon ...
+        # NOTE: Given how "allLands" was made, we know that there aren't any
+        #       invalid Polygons, so don't bother checking for them.
+        ax.add_geometries(
+            pyguymer3.geo.extract_polys(allLands, onlyValid = False, repair = False),
+            cartopy.crs.PlateCarree(),
+                alpha = 0.5,
+            edgecolor = "none",
+            facecolor = "magenta",
+            linewidth = 0.0,
+        )
+
         # Initialize lists ...
         labels = []
         lines = []
