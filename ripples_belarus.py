@@ -288,11 +288,6 @@ if __name__ == "__main__":
 
     print(f"The distance range has been automatically determined to be between {distMin:,d} km and {distMax:,d} km.")
 
-    # Update maximum range to remove noise ...
-    distMax = 11948                                                             # [km]
-
-    print(f"The distance range has been overridden to be between {distMin:,d} km and {distMax:,d} km.")
-
     # **************************************************************************
 
     # Initialize list ...
