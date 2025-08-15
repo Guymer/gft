@@ -9,6 +9,7 @@ def fly(
     *,
     avoidCountries = [
         "Baikonur",
+        "Belarus",
         "Iran",
         "Russia",
         "Ukraine",
@@ -128,9 +129,10 @@ def fly(
         raise Exception("\"shapely\" is not installed; run \"pip install --user Shapely\"") from None
 
     # Import my modules ...
-    import sys
-    sys.path.append("../gst")
-    import gst
+    try:
+        import gst
+    except:
+        raise Exception("\"gst\" is not installed; run \"pip install --user git+https://github.com/Guymer/gst.git\"") from None
     try:
         import pyguymer3
         import pyguymer3.geo
@@ -403,6 +405,7 @@ def fly(
                        add_gridlines = True,
                                debug = debug,
                                 dist = maxDist,
+                                 fov = maxPlane,
                                  lat = lat,
                                  lon = lon,
                                nIter = nIter,
@@ -748,6 +751,7 @@ def fly(
                            add_gridlines = True,
                                    debug = debug,
                                     dist = maxDist,
+                                     fov = maxPlane,
                                      lat = lat,
                                      lon = lon,
                                    nIter = nIter,

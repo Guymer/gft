@@ -8,6 +8,7 @@ def saveAllLands(
     *,
     avoidCountries = [
         "Baikonur",
+        "Belarus",
         "Iran",
         "Russia",
         "Ukraine",
