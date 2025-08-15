@@ -202,12 +202,14 @@ if __name__ == "__main__":
         print(f" > {0.001 * maxDist:,.2f} kilometres of flying is available (which is {maxDur:,.4f} hours).")
 
     # **************************************************************************
+    # **************************************************************************
+    # **************************************************************************
 
     # Initialize list ...
     frames = []
 
     # Loop over distances ...
-    for dist in range(1, 30001, 1):
+    for dist in range(1, 30000 + 1, 1):
         # Deduce PNG name, if it exists then append it to the list and skip ...
         frame = f"{outDir}/lon={lon:+011.6f}_lat={lat:+010.6f}/dist={dist:05d}.png"
         if os.path.exists(frame):
@@ -322,7 +324,7 @@ if __name__ == "__main__":
                 linewidth = 1.0,
             )
 
-        # Plot the central location ...
+        # Plot the starting location ...
         # NOTE: As of 5/Dec/2023, the default "zorder" of the coastlines is 1.5,
         #       the default "zorder" of the gridlines is 2.0 and the default
         #       "zorder" of the scattered points is 1.0.
