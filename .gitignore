@@ -20,6 +20,12 @@ shellcheck.log
 *.gcda
 *.gcno
 
+# Ignore compiler generated files ...
+*.so
+*.so.dSYM
+dist
+GFT.egg-info
+
 # Hide large datasets ...
 nAng=*
 res=*
