@@ -456,7 +456,7 @@ if __name__ == "__main__":
         # Check that the distance isn't too large ...
         if 1000.0 * float(dist) <= pyguymer3.MAXIMUM_VINCENTY:
             # Calculate the maximum distance the plane could have got to ...
-            maxShip = pyguymer3.geo.buffer(
+            maxPlane = pyguymer3.geo.buffer(
                 plane,
                 1000.0 * float(dist),
                 debug = args.debug,
@@ -467,7 +467,7 @@ if __name__ == "__main__":
 
             # Plot [Multi]Polygon ...
             ax.add_geometries(
-                pyguymer3.geo.extract_polys(maxShip, onlyValid = False, repair = False),
+                pyguymer3.geo.extract_polys(maxPlane, onlyValid = False, repair = False),
                 cartopy.crs.PlateCarree(),
                 edgecolor = "gold",
                 facecolor = "none",
