@@ -3,7 +3,7 @@
 
 pillow >= 8.0.0
 cartopy
-fmc
+fmc >= 0.0.5
 geojson
 gst
 matplotlib >= 3.5.0
