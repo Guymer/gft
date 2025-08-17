@@ -245,6 +245,16 @@ if __name__ == "__main__":
             frames.append(frame)
             continue
 
+        # HACK
+        if dist in (
+            7888,
+            8004,
+            8120,
+            8236,
+        ):
+            print(f"ERROR: Skipping \"{frame}\" as it crashes my MacBook Pro.")
+            continue
+
         # **********************************************************************
 
         # Initialize list ...
