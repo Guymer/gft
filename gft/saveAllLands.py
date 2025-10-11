@@ -20,8 +20,8 @@ def saveAllLands(
              local = False,
           maxPlane = None,
               nAng = 9,
-             nIter = 100,
              neRes = "110m",
+             nIter = 100,
               simp = 0.1,
                tol = 1.0e-10,
 ):
