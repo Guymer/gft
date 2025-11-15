@@ -67,14 +67,14 @@ def fly(
         plot flying contours every freqPlot iteration
     freqSimp : int, optional
         simplify the flying contour every freqSimp iteration
-    gshhgRes : string, optional
+    gshhgRes : str, optional
         the resolution of the Global Self-Consistent Hierarchical
         High-Resolution Geography datasets
     local : bool, optional
         the plot has only local extent
     nAng : int, optional
         the number of directions from each point that the plane could fly in
-    neRes : string, optional
+    neRes : str, optional
         the resolution of the Natural Earth datasets
     nIter : int, optional
         the maximum number of iterations (particularly the Vincenty formula)

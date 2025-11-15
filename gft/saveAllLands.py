@@ -30,9 +30,9 @@ def saveAllLands(
 
     Parameters
     ----------
-    wName : string
+    wName : str
         the file name of the compressed WKB file
-    dname : string
+    dname : str
         the directory name where temporary compressed WKB files can be stored
     debug : bool, optional
         print debug messages
@@ -52,7 +52,7 @@ def saveAllLands(
     nAng : int, optional
         the number of angles around each point that are calculated when
         buffering
-    neRes : string, optional
+    neRes : str, optional
         the resolution of the Natural Earth datasets
     nIter : int, optional
         the maximum number of iterations (particularly the Vincenty formula)
