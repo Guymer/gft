@@ -2,7 +2,7 @@
 # "check_READMEs.py" script from "https://github.com/Guymer/misc".
 
 pillow >= 8.0.0
-cartopy
+cartopy > 0.25.0
 fmc >= 0.0.5
 geojson
 gst >= 0.0.1
