@@ -55,10 +55,10 @@ def fly(
         print debug messages
     dur : float, optional
         the duration of the voyage (in days)
-    ffmpegPath : str, optional
+    ffmpegPath : None or str, optional
         the path to the "ffmpeg" binary (if not provided then Python will
         attempt to find the binary itself)
-    ffprobePath : str, optional
+    ffprobePath : None or str, optional
         the path to the "ffprobe" binary (if not provided then Python will
         attempt to find the binary itself)
     freqLand : int, optional
@@ -417,7 +417,7 @@ def fly(
                 )
 
                 # Configure axis ...
-                pyguymer3.geo.add_GSHHG_map_underlay(
+                pyguymer3.geo.add_GSHHG_map(
                     axAll,
                          debug = debug,
                      linewidth = 1.0,
@@ -763,7 +763,7 @@ def fly(
                     )
 
                     # Configure axis ...
-                    pyguymer3.geo.add_GSHHG_map_underlay(
+                    pyguymer3.geo.add_GSHHG_map(
                         axOne,
                              debug = debug,
                          linewidth = 1.0,
