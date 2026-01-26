@@ -119,9 +119,14 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--NE-resolution",
+        choices = [
+             "10m",
+             "50m",
+            "110m",
+        ],
         default = "110m",
            dest = "neRes",
-           help = "the resolution of the Natural Earth datasets",
+           help = "the resolution of the NE datasets",
            type = str,
     )
     parser.add_argument(
