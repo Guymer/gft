@@ -419,11 +419,12 @@ def fly(
                 # Configure axis ...
                 pyguymer3.geo.add_GSHHG_map(
                     axAll,
-                         debug = debug,
-                     linewidth = 1.0,
-                     onlyValid = False,
-                        repair = False,
-                    resolution = gshhgRes,
+                        debug = debug,
+                          fov = maxPlane,
+                     gshhgRes = gshhgRes,
+                    linewidth = 1.0,
+                    onlyValid = False,
+                       repair = False,
                 )
             else:
                 # Create figure ...
@@ -443,8 +444,8 @@ def fly(
                 # Configure axis ...
                 pyguymer3.geo.add_map_background(
                     axAll,
-                         debug = debug,
-                    resolution = "large8192px",
+                      debug = debug,
+                    subName = "large8192px",
                 )
 
             # Plot Polygons ...
@@ -765,11 +766,12 @@ def fly(
                     # Configure axis ...
                     pyguymer3.geo.add_GSHHG_map(
                         axOne,
-                             debug = debug,
-                         linewidth = 1.0,
-                         onlyValid = False,
-                            repair = False,
-                        resolution = gshhgRes,
+                            debug = debug,
+                              fov = maxPlane,
+                         gshhgRes = gshhgRes,
+                        linewidth = 1.0,
+                        onlyValid = False,
+                           repair = False,
                     )
                 else:
                     # Create figure ...
@@ -789,8 +791,8 @@ def fly(
                     # Configure axis ...
                     pyguymer3.geo.add_map_background(
                         axOne,
-                             debug = debug,
-                        resolution = "large8192px",
+                          debug = debug,
+                        subName = "large8192px",
                     )
 
                 # Plot Polygons ...

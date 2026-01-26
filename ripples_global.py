@@ -273,9 +273,9 @@ if __name__ == "__main__":
         # Configure axis ...
         pyguymer3.geo.add_map_background(
             ax,
-                 debug = args.debug,
-                  name = "shaded-relief",
-            resolution = "large8192px",
+              debug = args.debug,
+               name = "shaded-relief",
+            subName = "large8192px",
         )
 
         # Load [Multi]Polygon ...
