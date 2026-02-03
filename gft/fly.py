@@ -197,19 +197,7 @@ def fly(
     maxDist = (1852.0 * spd) * (24.0 * dur)                                     # [m]
     if maxDist > pyguymer3.MAXIMUM_VINCENTY:
         maxPlane = pyguymer3.geo.fillin(
-            shapely.geometry.polygon.orient(
-                shapely.geometry.polygon.Polygon(
-                    shapely.geometry.polygon.LinearRing(
-                        [
-                            (-180.0,  90.0),
-                            (+180.0,  90.0),
-                            (+180.0, -90.0),
-                            (-180.0, -90.0),
-                            (-180.0,  90.0),
-                        ]
-                    )
-                )
-            ),
+            pyguymer3.EARTH,
             +1.0,
                 debug = debug,
             fillSpace = "EuclideanSpace",
