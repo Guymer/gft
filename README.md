@@ -19,9 +19,9 @@ python3.12 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 256 --freqPlot 32 --f
 GFT requires the following Python modules to be installed and available in your `PYTHONPATH`.
 
 * [cartopy](https://pypi.org/project/Cartopy/)
-* [FMC](https://github.com/Guymer/fmc)
+* [fmc](https://github.com/Guymer/fmc)
 * [geojson](https://pypi.org/project/geojson/)
-* [GST](https://github.com/Guymer/gst)
+* [gst](https://github.com/Guymer/gst)
 * [matplotlib](https://pypi.org/project/matplotlib/)
 * [numpy](https://pypi.org/project/numpy/)
 * [PIL](https://pypi.org/project/Pillow/)
