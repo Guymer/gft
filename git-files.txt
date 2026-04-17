@@ -12,6 +12,7 @@ gft/__init__.py
 gft/__main__.py
 gft/fly.py
 gft/saveAllLands.py
+git-files.txt
 LICENCE.txt
 MANIFEST.in
 pyproject.toml
