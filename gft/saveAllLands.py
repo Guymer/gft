@@ -250,7 +250,7 @@ def saveAllLands(
         gzObj.write(shapely.wkb.dumps(polys))
 
     # Save MultiPolygon ...
-    with open(gName, "wt", encoding = "utf-8") as fObj:
+    with open(gName, mode = "wt", encoding = "utf-8") as fObj:
         geojson.dump(
             polys,
             fObj,

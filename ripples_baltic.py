@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Use the proper idiom in the main module ...
-# NOTE: See https://docs.python.org/3.12/library/multiprocessing.html#the-spawn-and-forkserver-start-methods
+# NOTE: See https://docs.python.org/3.13/library/multiprocessing.html#the-spawn-and-forkserver-start-methods
 if __name__ == "__main__":
     # Import standard modules ...
     import argparse
@@ -231,7 +231,7 @@ if __name__ == "__main__":
     )
 
     # Load airport list ...
-    with open(f"{fmc.__path__[0]}/db.json", "rt", encoding = "utf-8") as fObj:
+    with open(f"{fmc.__path__[0]}/db.json", mode = "rt", encoding = "utf-8") as fObj:
         airports = json.load(fObj)
 
     # Create list of Estonian, Finnish, Latvian, Lithuanian and Swedish "large"
