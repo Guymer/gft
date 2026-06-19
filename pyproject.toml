@@ -40,7 +40,7 @@ dependencies = [                        # NOTE: See "requirements.txt"
     "pyguymer3",
     "shapely",
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 
 [project.urls]
 Homepage = "https://github.com/Guymer/gft"
