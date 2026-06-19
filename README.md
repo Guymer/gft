@@ -9,9 +9,9 @@ This project aims to show how a plane flies around the globe - building heavily 
 To generate the data needed, [complexity.py](complexity.py) will run commands like:
 
 ```sh
-python3.12 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 64 --freqPlot 8 --freqSimp 8 --GSHHG-resolution c --nAng 9 --NE-resolution 110m --precision 116000.0
-python3.12 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 128 --freqPlot 16 --freqSimp 16 --GSHHG-resolution c --nAng 17 --NE-resolution 50m --precision 58000.0
-python3.12 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 256 --freqPlot 32 --freqSimp 32 --GSHHG-resolution c --nAng 33 --NE-resolution 10m --precision 29000.0
+python3.13 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 64 --freqPlot 8 --freqSimp 8 --GSHHG-resolution c --nAng 9 --NE-resolution 110m --precision 116000.0
+python3.13 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 128 --freqPlot 16 --freqSimp 16 --GSHHG-resolution c --nAng 17 --NE-resolution 50m --precision 58000.0
+python3.13 -m gft 0.0 0.0 500.0 --duration 0.01 --freqLand 256 --freqPlot 32 --freqSimp 32 --GSHHG-resolution c --nAng 33 --NE-resolution 10m --precision 29000.0
 ```
 
 ## Dependencies
