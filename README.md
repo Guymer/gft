@@ -1,6 +1,6 @@
 # Global Flying Times (GFT)
 
-!["mypy" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/mypy.yaml/badge.svg) !["publish" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/publish.yaml/badge.svg) !["pylint" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/pylint.yaml/badge.svg)
+!["mypy" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/mypy.yaml/badge.svg) !["publish" GitHub Action Status](https://github.com/Guymer/gft/actions/workflows/publish.yaml/badge.svg)
 
 This project aims to show how a plane flies around the globe - building heavily upon [GST](https://github.com/Guymer/gst).
 
