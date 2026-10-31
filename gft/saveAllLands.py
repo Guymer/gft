@@ -6,13 +6,15 @@ def saveAllLands(
     dname,
     /,
     *,
-    avoidCountries = [
-        "Baikonur",
-        "Belarus",
-        "Iran",
-        "Russia",
-        "Ukraine",
-    ],
+    avoidCountries = frozenset(
+        [
+            "Baikonur",
+            "Belarus",
+            "Iran",
+            "Russia",
+            "Ukraine",
+        ]
+    ),
              debug = __debug__,
               dist = -1.0,
               fill = 1.0,
@@ -152,7 +154,7 @@ def saveAllLands(
 
                 # Throw away all parts of the Polygon that the plane will never
                 # fly to ...
-                poly = maxPlane.intersection(poly)
+                poly = shapely.geometry.polygon.orient(maxPlane.intersection(poly))
 
             # Check if the user wants to buffer the land ...
             # NOTE: The land should probably be buffered to prohibit planes
