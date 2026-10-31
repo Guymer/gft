@@ -7,13 +7,15 @@ def fly(
     spd,
     /,
     *,
-    avoidCountries = [
-        "Baikonur",
-        "Belarus",
-        "Iran",
-        "Russia",
-        "Ukraine",
-    ],
+    avoidCountries = frozenset(
+        [
+            "Baikonur",
+            "Belarus",
+            "Iran",
+            "Russia",
+            "Ukraine",
+        ]
+    ),
               cons = 2.0,
              debug = __debug__,
                dur = 1.0,
@@ -403,7 +405,6 @@ def fly(
                                nIter = nIter,
                            onlyValid = False,
                               repair = False,
-                    satellite_height = False,
                 )
 
                 # Configure axis ...
@@ -750,7 +751,6 @@ def fly(
                                    nIter = nIter,
                                onlyValid = False,
                                   repair = False,
-                        satellite_height = False,
                     )
 
                     # Configure axis ...
